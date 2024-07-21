@@ -27,7 +27,7 @@ void bfs(int x){
 
 int main(){
     memset(dist, INF, sizeof(dist));
-    //memset(parent, INF, 200010);
+    memset(parent, INF, 200010);
 
     //updated
     cin>>n>>m;
@@ -48,10 +48,9 @@ int main(){
     cout<<dist[n]<<endl;
 
     stack<int> s;
-    
-    while (n!=INF){
-        s.push(n);
-        n=parent[n];
+    s.push(n);
+    while (s.top()!=1){
+        s.push(parent[s.top()]);
     }
 
     while (!s.empty()){
