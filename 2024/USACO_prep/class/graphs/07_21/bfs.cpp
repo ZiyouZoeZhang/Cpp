@@ -1,8 +1,10 @@
 #include <bits/stdc++.h>
+#define INF 0x3f3f3f3f
 using namespace std;
-vector<int> adj[10010];
-bool visited[100010];
-int dist[100010];
+vector<int> adj[200010];
+bool visited[200010];
+int dist[200010];
+int parent[200010];
 int n, m;
 
 void bfs(int x){
@@ -15,13 +17,18 @@ void bfs(int x){
         visited[a]=true;
         for (auto b: adj[a]){
             q.push(b);
-            dist[b]=min(dist[b],dist[a]+1);
+            if (dist[a]+1<dist[b]){
+                dist[b]=dist[a]+1;
+                parent[b]=a;
+            }
+            
         }
     }
 }
 
 int main(){
-    memset(dist, 0x3f3f3f3f, 100010);
+    memset(dist, INF, 200010);
+    memset(parent, INF, 200010);
 
     //updated
     cin>>n>>m;
@@ -32,8 +39,15 @@ int main(){
         adj[b].push_back(a);
     }
     bfs(1);
-
+    
     cout<<dist[n]<<endl;
+
+/*
+    while (parent[n]!=INF){
+        cout<<parent[n];
+        n=parent[n];
+    }
+   */
 
     return 0;
 }
