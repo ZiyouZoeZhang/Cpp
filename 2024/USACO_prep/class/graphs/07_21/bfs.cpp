@@ -24,13 +24,14 @@ void bfs(int x){
 
 int main(){
     //memset(dist, 0x3f3f3f3f, 100010);
+    cout<<"hello";
     cin>>n>>m;
     for (int i=0; i<m; i++){
         int a, b;
         cin>>a>>b;
         adj[a].push_back(b);
     }
-    cout<<"hello";
+    cout<<"111";
     bfs(0);
 
     return 0;
