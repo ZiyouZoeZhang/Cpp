@@ -1,5 +1,5 @@
 //https://atcoder.jp/contests/abc164/tasks/abc164_d
-//this could be implemented with prefic sum, but I didn't
+//this could be implemented with prefix sum, but I didn't
 
 #include <iostream>
 #include <vector>
