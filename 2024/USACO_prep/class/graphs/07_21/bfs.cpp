@@ -6,6 +6,7 @@ int dist[100010];
 int n, m;
 
 void bfs(int x){
+    cout<<"222";
     queue<int> q;
     dist[x]=1;
     q.push(x);
@@ -22,13 +23,14 @@ void bfs(int x){
 }
 
 int main(){
-    memset(dist, 0x3f3f3f3f, 100010);
+    //memset(dist, 0x3f3f3f3f, 100010);
     cin>>n>>m;
     for (int i=0; i<m; i++){
         int a, b;
         cin>>a>>b;
         adj[a].push_back(b);
     }
+    cout<<"hello";
     bfs(0);
 
     return 0;

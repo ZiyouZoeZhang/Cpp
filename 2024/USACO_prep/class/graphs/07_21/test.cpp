@@ -7,7 +7,7 @@ vector<pair<int, int>> adj [200001];
 int n, m;
 
 void dijkstra (int x){
-    memset(dist, 0x3f, sizeof (dist));
+    //memset(dist, 0x3f, sizeof (dist));
     priority_queue<pair<long long, int>>q;
     dist [x]=0;
     q.push({0, x});
