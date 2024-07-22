@@ -116,12 +116,21 @@
         "16_": "cpp",
         "git.enabled": "false",
         "__verbose_abort": "cpp",
-        "execution": "cpp"
+        "execution": "cpp",
+        "print": "cpp"
     },
     "C_Cpp.errorSquiggles": "enabled",
     "files.exclude": {
         "**/*.exec": true, //"**/*.exe": true
         "**/*.exe": true, //"**/*.exe": true
         "**/*.dSYM": true, //"**/*.exe": true
-    }
+    },
+    "[c]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+    //☝🏼 Select the MS extension as defaultFormatter
+    },
+    "[cpp]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+    
 }
