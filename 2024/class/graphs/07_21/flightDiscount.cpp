@@ -1,7 +1,7 @@
 //https://cses.fi/problemset/task/1195
 #include<bits/stdc++.h>
 #define ll long long
-#define INF 0x3f3f3f3f
+#define INF 0x3f3f3f3f3f3f3f3f
 using namespace std;
 
 vector<pair<ll, ll>> adj[200010]; //b, w
@@ -74,7 +74,7 @@ int main(){
     vector<ll> distA = dij(1), distB = dij_rev(N);
 
     ll minimum=INF;
-    for (ll a=1; a<M; a++) {
+    for (ll a=1; a<=M; a++) {
         for (auto i: adj[a]) {
             ll b=i.first, w=i.second;
 
