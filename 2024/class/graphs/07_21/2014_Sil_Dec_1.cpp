@@ -40,9 +40,9 @@ int main () {
     vector<int> distP = bfs(N);
 
     int m=INF;
-    for (int i=0; i<=N ;i++){
+    for (int i=1; i<=N ;i++){
         m = min(m, (distB[i]*B)+ (distE[i]*E) + (distP[i]*P));
     }
-
+    
     fout<<m<<endl;
 }
