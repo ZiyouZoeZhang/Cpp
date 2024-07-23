@@ -9,7 +9,6 @@ vector<pair<ll, ll>> adj_rev[200010]; //b, w
 
 ll N, M;
 
-
 vector<ll> distB;
 
 //visA, vis B
@@ -33,7 +32,6 @@ vector<ll> dij(ll x){
             pq.push(make_pair(-dist[b], b));
         }
     }
-
     return dist;
 }
 
@@ -77,7 +75,6 @@ int main(){
     for (ll a=1; a<=M; a++) {
         for (auto i: adj[a]) {
             ll b=i.first, w=i.second;
-
             if (distA[a]+distB[b]+(w/2.0)<minimum) minimum = distA[a]+distB[b]+(w/2);
         }
     }
