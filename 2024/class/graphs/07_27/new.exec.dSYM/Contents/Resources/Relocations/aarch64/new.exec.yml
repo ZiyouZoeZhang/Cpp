@@ -1,0 +1,15 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/zoezhang/Documents/Home/C/2024/class/graphs/07_27/new.exec'
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100003910, symSize: 0x3BC }
+  - { offsetInCU: 0x3BF2, offset: 0x3BF2, size: 0x8, addend: 0x0, symName: __ZNSt3__13minB8ue170006IxEERKT_S3_S3_, symObjAddr: 0x3BC, symBinAddr: 0x100003CCC, symSize: 0x2C }
+  - { offsetInCU: 0x4870, offset: 0x4870, size: 0x8, addend: 0x0, symName: __ZNSt3__14endlB8ue170006IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_, symObjAddr: 0x414, symBinAddr: 0x100003D24, symSize: 0x58 }
+  - { offsetInCU: 0x48B0, offset: 0x48B0, size: 0x8, addend: 0x0, symName: __ZNSt3__13minB8ue170006IxNS_6__lessIvvEEEERKT_S5_S5_T0_, symObjAddr: 0x46C, symBinAddr: 0x100003D7C, symSize: 0x54 }
+  - { offsetInCU: 0x494F, offset: 0x494F, size: 0x8, addend: 0x0, symName: __ZNSt3__19use_facetB8ue170006INS_5ctypeIcEEEERKT_RKNS_6localeE, symObjAddr: 0x578, symBinAddr: 0x100003E88, symSize: 0x2C }
+  - { offsetInCU: 0x7433, offset: 0x7433, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100003910, symSize: 0x3BC }
+  - { offsetInCU: 0x7665, offset: 0x7665, size: 0x8, addend: 0x0, symName: __ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsB8ue170006EPFRS3_S4_E, symObjAddr: 0x3E8, symBinAddr: 0x100003CF8, symSize: 0x2C }
+  - { offsetInCU: 0x76AB, offset: 0x76AB, size: 0x8, addend: 0x0, symName: __ZNKSt3__16__lessIvvEclB8ue170006IxxEEbRKT_RKT0_, symObjAddr: 0x4C0, symBinAddr: 0x100003DD0, symSize: 0x34 }
+  - { offsetInCU: 0x76FD, offset: 0x76FD, size: 0x8, addend: 0x0, symName: __ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenB8ue170006Ec, symObjAddr: 0x4F4, symBinAddr: 0x100003E04, symSize: 0x84 }
+  - { offsetInCU: 0x7769, offset: 0x7769, size: 0x8, addend: 0x0, symName: __ZNKSt3__15ctypeIcE5widenB8ue170006Ec, symObjAddr: 0x5A4, symBinAddr: 0x100003EB4, symSize: 0x38 }
+...

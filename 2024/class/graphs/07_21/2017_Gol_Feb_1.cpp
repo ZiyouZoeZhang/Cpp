@@ -1,3 +1,4 @@
+//https://usaco.org/index.php?page=viewproblem2&cpid=717
 #include<bits/stdc++.h>
 #define INF 0x3f3f3f3f
 #define INFL  0x3f3f3f3f3f3f3f3f
@@ -7,62 +8,45 @@ using namespace std;
 int adj[100][100];
 ll dist[100][100];
 int vis[100][100] = {false};
-int cou[100][100] = {4};
 
-
-int dx[] = {0, 0, 1, -1};
-int dy[] = {1, -1, 0, 0};
+int dx[16]={-3,-2,-2,-1,-1,-1,0,0,0,0,1,1,1,2,2,3};
+int dy[16]={0,-1,1,-2,0,2,-3,-1,1,3,-2,0,2,-1,1,0};
 int N, T;
 
-void dij(int x, int y){
+ofstream fout ("visitfj.out");
+ifstream fin ("visitfj.in");
+
+int dij(int x, int y){
 
     priority_queue<tuple<int, int, int>> q; //priority, x, y;
     q.push(make_tuple(0, x, y));
-    cou[x][y]=0;
     dist[x][y]=0;
     while (!q.empty()){
         int ax = get<1>(q.top()), ay = get<2>(q.top()); q.pop();
         if (vis[ax][ay]) continue;
         vis[ax][ay]= true;
-        for (int i=0; i<4; i++) {
-            int bx=ax+dx[i], by = ay+dy[i];
-            if (bx>=0 && bx<N && by>=0 && by<N){
-                if (cou[ax][ay]==2){
-                    /*
-                    if (dist[ax][ay] + T + adj[bx][by] <= dist[bx][by]){
-                        dist[bx][by] = dist[ax][ay] + T + adj[bx][by];
-                        cou[bx][by]=0;
-                        //q.push (make_tuple(-dist[bx][by], bx, by));
-                    }
-                    */
-                    
-                    cou[bx][by]=0;
-                    dist[bx][by] = min (dist[bx][by], dist[ax][ay] + T + adj[bx][by]);
-                } else {
-                    //dist[bx][by] = dist[ax][ay] + T;
-                    //cou[bx][by]=cou[ax][ay]+1;
-                    //q.push (make_tuple(-dist[bx][by], bx, by));
 
+        //if very close to final place
+        //looking at ax, ay and the distance to final N-1, N-1
+        if ((N-1 - ax)+(N-1 - ay)<3) {
+            dist[N-1][N-1]= dist[ax][ay] + (((N-1 - ax)+(N-1 - ay))*T);
+            return 0;
+        }
 
-                    /*if (dist[ax][ay] + T <= dist[bx][by]){
-                        dist[bx][by] = dist[ax][ay] + T;
-                        cou[bx][by]=+1;
-                        //q.push (make_tuple(-dist[bx][by], bx, by));
-                    }*/
-                    
-                    cou[bx][by]=cou[ax][ay]+1;
-                    dist[bx][by] = min (dist[bx][by], dist[ax][ay] + T);
-                }
+        //else
+        for (int i=0; i<16; i++) {
+            int bx = ax+dx[i], by = ay+dy[i];
+            if (bx>=0 && bx<N && by>=0 && by<N) {
+                dist[bx][by] = min (dist[bx][by], dist[ax][ay] + 3*T + adj[bx][by]);
                 q.push (make_tuple(-dist[bx][by], bx, by));
             } 
         }
     }
+    return 0;
 }
 
 int main(){
-
     memset(dist, INF, sizeof(dist[0][0]) * 100 * 100);
-    memset(cou, 4, sizeof(cou[0][0]) * 100 * 100);
 
     cin>>N>>T;
 
