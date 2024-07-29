@@ -1,2 +1,3 @@
 **/*.dSYM
 **/*.exec
+.DS_Store
