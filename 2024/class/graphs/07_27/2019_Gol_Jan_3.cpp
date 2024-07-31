@@ -1,3 +1,5 @@
+//https://www.luogu.com.cn/problem/P5201
+//done!!!
 #include<bits/stdc++.h>
 #define INF 0x3f3f3f3f
 #define s second
@@ -5,33 +7,35 @@
 #define ll long long
 using namespace std;
 
-ofstream fout ("shortcut.out");
-ifstream fin ("shortcut.in");
+//ofstream fout ("shortcut.out");
+//ifstream fin ("shortcut.in");
 
 int main (){
     int N, M, K;
-    fin>>N>>M>>K;
-    vector<int> iniCows(N+1);
-    for (int i=1; i<N+1; i++) fin>>iniCows[i];
+    cin>>N>>M>>K;
+    vector<int> iniCows(N);
+    for (int i=0; i<N; i++) cin>>iniCows[i];
 
-    vector<vector<pair<int, int>>> adj (N+1); //time, node
-    vector<int> dist (N+1, INF);
-    vector<bool> vis(N+1, false);
-    vector<int> parent(N+1, INF);
+    vector<vector<pair<int, int>>> adj (N); //time, node
+    vector<int> dist (N, INF);
+    vector<bool> vis(N, false);
+    vector<int> parent(N, INF);
+
     for (int i=0; i<M; i++){
         int a, b, w;
-        fin>>a>>b>>w;
-        adj[a].push_back({w, b});
+        cin>>a>>b>>w;
+        adj[--a].push_back({w, --b});
         adj[b].push_back({w, a});
     }
 
-    for (int i=0; i<N+1; i++){
+    for (int i=0; i<N; i++){
         sort(adj[i].begin(), adj[i].end());
     }
 
-    priority_queue<pair<int, int>>pq;
-    pq.push({0, 1});
-    dist[1]=0;
+
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>>pq; //what is this??
+    pq.push({0, 0});
+    dist[0]=0;
 
     while (!pq.empty()){
         int a = pq.top().s, aw = pq.top().f; pq.pop();
@@ -53,9 +57,9 @@ int main (){
     }
 
     //now backtrack
-    vector<ll> cow (N+1, 0);
+    vector<ll> cow (N);
 
-    for (int i=1; i<N+1; i++){ //parent
+    for (int i=0; i<N; i++){ //parent
         int cur = i;
         while(cur != INF){
             cow[cur] += iniCows[i];
@@ -64,11 +68,11 @@ int main (){
     }
 
     ll maximum = 0;
-    for (int i=1; i<N+1; i++){
+    for (int i=0; i<N; i++){
         maximum = max(maximum, (cow[i] * (dist[i] - K)));
     }
 
-    fout<<maximum<<endl;
+    cout<<maximum<<endl;
     return 0;
 
 }
