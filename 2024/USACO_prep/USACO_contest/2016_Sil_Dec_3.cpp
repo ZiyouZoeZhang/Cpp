@@ -1,6 +1,10 @@
+//https://usaco.org/index.php?page=viewproblem2&cpid=668
 #include<bits/stdc++.h>
 using namespace std;
 int N;
+
+ofstream fout ("moocast.out");
+ifstream fin ("moocast.in");
 
 struct c {
     int x;
@@ -14,11 +18,11 @@ bool canReach(int x1, int y1, int x2, int y2, int p){
 }
 
 int main(){
-    cin>>N;
+    fin>>N;
     vector<c> v;
     for (int i=0; i<N; i++){
         c a;
-        cin>>a.x>>a.y>>a.p;
+        fin>>a.x>>a.y>>a.p;
         v.push_back(a);
     }
 
@@ -51,6 +55,6 @@ int main(){
         m = max(m, count);
     }
 
-    cout<<m<<endl;
+    fout<<m<<endl;
     return 0;
 }
