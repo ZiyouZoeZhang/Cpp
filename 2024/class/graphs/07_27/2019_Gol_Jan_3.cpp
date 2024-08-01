@@ -7,14 +7,14 @@
 #define ll long long
 using namespace std;
 
-//ofstream fout ("shortcut.out");
-//ifstream fin ("shortcut.in");
+ofstream fout ("shortcut.out");
+ifstream fin ("shortcut.in");
 
 int main (){
     int N, M, K;
-    cin>>N>>M>>K;
+    fin>>N>>M>>K;
     vector<int> iniCows(N);
-    for (int i=0; i<N; i++) cin>>iniCows[i];
+    for (int i=0; i<N; i++) fin>>iniCows[i];
 
     vector<vector<pair<int, int>>> adj (N); //time, node
     vector<int> dist (N, INF);
@@ -23,7 +23,7 @@ int main (){
 
     for (int i=0; i<M; i++){
         int a, b, w;
-        cin>>a>>b>>w;
+        fin>>a>>b>>w;
         adj[--a].push_back({w, --b});
         adj[b].push_back({w, a});
     }
@@ -72,7 +72,7 @@ int main (){
         maximum = max(maximum, (cow[i] * (dist[i] - K)));
     }
 
-    cout<<maximum<<endl;
+    fout<<maximum<<endl;
     return 0;
 
 }
