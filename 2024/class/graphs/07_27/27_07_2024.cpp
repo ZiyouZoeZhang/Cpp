@@ -3,16 +3,15 @@
 #define ll long long
 using namespace std;
 
-
 int main (){
-    ll N, M, Q;
-    cin>>N>>M>>Q;
+    ll N, M, K, Q;
+    cin>>N>>M>>K>>Q;
 
-    ll dist[M][M];
-    ll adj[N][N];
+    ll dist[N][N]; //>
+   // ll adj[N][N]; 
 
-    for (ll i=1; i<=M; i++){
-        for (ll j=1; j<=M; j++){
+    for (ll i=1; i<=N; i++){
+        for (ll j=1; j<=N; j++){
             if (i==j) dist[i][j] = 0;
             else dist[i][j] = INF;
         }
@@ -21,13 +20,13 @@ int main (){
     for (ll i=0; i<M; i++){
         ll a, b, w;
         cin>>a>>b>>w;
-        adj[a][b]=w;
+        //adj[a][b]=w;
         dist[a][b]=w;
     }
 
-    for (ll k=1; k<=M; k++){
-        for (ll i=1; i<=M; i++){
-            for (ll j=1; j<=M; j++){
+    for (ll k=1; k<=N; k++){
+        for (ll i=1; i<=N; i++){
+            for (ll j=1; j<=N; j++){
                 dist[i][j] = min (dist[i][j], dist[i][k] + dist[k][j]);
             }
         }

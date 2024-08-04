@@ -2,8 +2,9 @@
 #define cin fin
 #define cout fout
 using namespace std;
-    ifstream fin("vacation.in");
-    ofstream fout("vacation.out");
+ifstream fin("vacation.in");
+
+ofstream fout("vacation.out");
 
 
 const int INF = 1e9;

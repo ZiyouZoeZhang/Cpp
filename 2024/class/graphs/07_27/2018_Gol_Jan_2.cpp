@@ -2,15 +2,15 @@
 //https://usaco.org/index.php?page=viewproblem2&cpid=790
 //cow at large
 //65 points
+
 #include <bits/stdc++.h>
-#define INF 0x3f3f3f3f
 using namespace std;
 
 ofstream fout ("atlarge.out");
 ifstream fin ("atlarge.in");
 
 int main (){
-    
+
     int N, K;
     fin>>N>>K;
 
