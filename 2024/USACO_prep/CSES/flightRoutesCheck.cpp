@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
+//https://cses.fi/problemset/task/1682/
 
 vector<int> adj[100010][2];
 bool vis[100010];
