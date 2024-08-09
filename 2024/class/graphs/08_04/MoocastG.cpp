@@ -1,3 +1,4 @@
+//https://usaco.org/index.php?page=viewproblem2&cpid=669
 #include <bits/stdc++.h>
 #define f first
 #define s second

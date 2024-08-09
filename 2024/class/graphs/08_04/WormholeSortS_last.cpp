@@ -1,5 +1,9 @@
-//https://cses.fi/problemset/task/1676
+//https://www.luogu.com.cn/problem/P6004
+//https://usaco.org/index.php?page=viewproblem2&cpid=992
+//done!!
+
 #include <bits/stdc++.h>
+#define ll long long
 using namespace std;
 
 struct DisjointSets {
@@ -28,21 +32,42 @@ struct DisjointSets {
 	bool connected(int x, int y) { return find(x) == find(y); }
 };
 
+struct p{
+    ll w;
+    int u, v;
+};
+
 int N, M;
+vector<p> con;
+vector<int> cows;
 
 int main (){
     cin>>N>>M;
-    DisjointSets d = DisjointSets(N);
-    int mx = 0;
-    for (int i=0; i<M; i++){
-        int a, b;
-        cin>>a>>b;  
-        if (d.unite(--a, --b)){
-            mx = max(mx, d.sizes[d.find(a)]);
-            N--;
-        }
-        cout<<N<<" "<<mx<<endl;
+    for (int i=0; i<N; i++){
+        int a;
+        cin>>a;
+        cows.push_back(--a);
     }
 
-    return 0;
+    for (int i=0; i<M; i++){
+        p a;
+        cin>>a.u>>a.v>>a.w;
+        a.u--; a.v--;
+        con.push_back(a);
+    }
+
+    sort(con.begin(), con.end(), [](p a, p b){return b.w<a.w;});
+
+    DisjointSets d = DisjointSets(N);
+    int cow = 0;
+    int index = 0;
+    while (cow<N){
+        while (index < M && !d.connected(cows[cow], cow)){
+            d.unite(con[index].u, con[index].v);
+            index++;
+        }
+        cow++;
+    }
+    if (index == 0) cout<<"-1"<<endl;
+    else cout<<con[index-1].w<<endl;
 }
