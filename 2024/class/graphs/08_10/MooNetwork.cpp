@@ -1,3 +1,4 @@
+//https://usaco.org/index.php?page=viewproblem2&cpid=1211
 #include <bits/stdc++.h>
 #define ll long long
 using namespace std;
@@ -52,34 +53,6 @@ ll kruskal(){
     return ans;
 }
 
-long long prim(const vector<vector<pair<int, int>>> &neighbors) {
-	const int n = neighbors.size();  // just a shorthand
-	long long min_cost = 0;
-	vector<long long> dist(n, std::numeric_limits<long long>().max());
-	dist[0] = 0;
-	std::priority_queue<pair<long long, int>> q;
-	q.push({0, 0});
-	vector<bool> visited(n);
-	int added = 0;
-	while (added < n) {
-		if (q.empty()) { return -1; }
-		auto [curr_cost, v] = q.top();
-		q.pop();
-		curr_cost *= -1;
-		if (dist[v] < curr_cost) { continue; }
-		added++;
-		visited[v] = true;
-		min_cost += curr_cost;
-		for (auto &[next, n_cost] : neighbors[v]) {
-			if (!visited[next] && n_cost < dist[next]) {
-				dist[next] = n_cost;
-				q.push({-n_cost, next});
-			}
-		}
-	}
-	return min_cost;
-}
-
 int main (){
     cin>>N;
     for (int i=0; i<N; i++){
@@ -88,22 +61,18 @@ int main (){
         v.push_back({x, y});
     }
 
-    vector<vector<pair<int, int>>> neighbors;
+	sort(v.begin(), v.end());
 
     for (int i=0; i<N; i++){
         vector<pair<int, int>> temp;
         for (int j=i+1; j<N; j++){
-            //p a;
-            //a.u = i; a.v = j; a.w =pow((v[i].first- v[j].first), 2)+ pow((v[i].second-v[j].second), 2);
-            //adj.push_back(a);
-            temp.push_back({j, pow((v[i].first- v[j].first), 2)+ pow((v[i].second-v[j].second), 2)});
+			if (j==i+50) {break;} //very important 剪枝
+            p a;
+            a.u = i; a.v = j; a.w =pow((v[i].first- v[j].first), 2)+ pow((v[i].second-v[j].second), 2);
+            adj.push_back(a);
         }
-        neighbors.push_back(temp);
-    }
-    for (int i=0; i<N; i++){
-        sort(neighbors[i].begin(), neighbors[i].end(), [](pair<int, int> a, pair<int, int>  b){return a.second < b.second;});
     }
 
-    //sort(adj.begin(), adj.end(), [](p a, p b){return b.w > a.w;});
-    cout<< prim(neighbors)<<endl;
+    sort(adj.begin(), adj.end(), [](p a, p b){return b.w > a.w;});
+	cout<<kruskal()<<endl;
 }

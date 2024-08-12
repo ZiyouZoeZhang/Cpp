@@ -1,3 +1,4 @@
+//demonstratio of prim's algorithm
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -28,4 +29,17 @@ long long prim(const vector<vector<pair<int, int>>> &neighbors) {
 		}
 	}
 	return min_cost;
+}
+
+int main (){
+    int N;
+    vector<vector<pair<int, int>>> neighbors;
+
+    for (int i=0; i<N; i++){
+        sort(neighbors[i].begin(), neighbors[i].end(), [](pair<int, int> a, pair<int, int>  b){return a.second < b.second;});
+    }
+
+    cout<< prim(neighbors)<<endl;
+
+    return 0;
 }
