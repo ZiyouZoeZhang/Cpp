@@ -42,10 +42,10 @@ struct DisjointSets {
 ll A, B, N, M;
 vector<p> adj;
 
-ll kruskal(ll N){
+ll kruskal(ll num){
     ll ans = 0;
     ll count = 0;
-    DisjointSets d = DisjointSets(N);
+    DisjointSets d = DisjointSets(num+1000);
     for (ll i=0; i<adj.size(); i++){
         if (!d.connected(adj[i].u, adj[i].v)){
             d.unite(adj[i].u, adj[i].v);
@@ -53,15 +53,15 @@ ll kruskal(ll N){
             count++;
             //cout<<adj[i].u<<" "<<adj[i].v<<" "<<adj[i].w<<endl;
         }
-        if (count == N-1) {return ans;}
+        if (count == num-1) {return ans;}
     }
     return ans;
 }
 
 int main (){
     cin>>A>>B>>N>>M;
-    vector<ll> Ns(N); //horizontal
-    vector<ll> Ms(M); //vertical
+    vector<ll> Ns(N+100, 0x3f3f3f3f3f3f3f3f); //horizontal
+    vector<ll> Ms(M+100, 0x3f3f3f3f3f3f3f3f); //vertical
     
     for (ll i=0; i<N; i++){
         cin>>Ns[i];
@@ -101,4 +101,4 @@ int main (){
     sort(adj.begin(), adj.end(), [](p a, p b){return a.w < b.w;});
 
     cout<<kruskal(((A+1)*(B+1)))<<endl;
-}
+}   
