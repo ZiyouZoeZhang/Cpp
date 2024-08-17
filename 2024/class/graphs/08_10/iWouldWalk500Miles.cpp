@@ -32,35 +32,31 @@ struct DisjointSets {
 
 struct p {
     int w;
-    short x, y;
+    short x;
+    short y;
 };
 
 int N, K;
 vector<p> adj;
 
-int dis(int x, int y){
-    return (((long long)2019201913*(x+1)) + ((long long)2019201949*(y+1)))%2019201997;
-}
+int dis(int x, int y) { return (((long long)2019201913*(x+1)) + ((long long)2019201949*(y+1)))%2019201997;}
 
 int main (){
     fin>>N>>K;
-    for (int i=0; i<N; i++){
-        for (int j = i+1; j<N; j++){
-            p a;
-            a.w = dis(i, j); a.x = i; a.y = j;
-            adj.push_back(a);
+    for (short i=0; i<N; i++){
+        for (short j = i+1; j<N; j++){
+            adj.push_back({dis(i, j), i, j});
         }
     }
 
     sort(adj.begin(), adj.end(), [](p a, p b){return a.w < b.w;}); //least to greatest
 
-    DisjointSets d = DisjointSets(N);
+    DisjointSets d(N);
     int groups = N;
     int i = 0;
     while (groups>=K){
-        while (d.connected(adj[i].x, adj[i].y)) i++;
-        d.unite(adj[i].x, adj[i].y);
-        groups--;
+        if (d.unite(adj[i].x, adj[i].y)) groups--;
+        else i++;
     }
 
     fout<<adj[i].w<<endl;

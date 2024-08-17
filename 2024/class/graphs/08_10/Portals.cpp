@@ -52,12 +52,9 @@ int main (){
 
     int ans = 0;
     for (int i=0; i<v.size(); i++){
-        if (!d.connected(v[i].second[0], v[i].second[2]) || !d.connected(v[i].second[1], v[i].second[3])){
-            d.unite(v[i].second[0], v[i].second[2]);
-            ans += v[i].first;
-        }
+        if (d.unite(v[i].second[0], v[i].second[2])) ans += v[i].first;
     }
-
+    
     cout<<ans<<endl;
     return 0;
 }

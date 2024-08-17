@@ -64,7 +64,6 @@ int main (){
 	sort(v.begin(), v.end());
 
     for (int i=0; i<N; i++){
-        vector<pair<int, int>> temp;
         for (int j=i+1; j<N; j++){
 			if (j==i+50) {break;} //very important 剪枝
             p a;
