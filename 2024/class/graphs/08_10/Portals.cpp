@@ -1,5 +1,4 @@
 //https://usaco.org/index.php?page=viewproblem2&cpid=1138
-//92 points
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -35,26 +34,25 @@ int N;
 int main (){
     cin>>N;
 
-    DisjointSets d = DisjointSets((2*N + 10));
+    DisjointSets d(2*N + 10);
 
-    for (int i=0; i<N; i++){
-        int a; cin>>a;
-        vector<int> temp(4);
-        for (int i=0; i<4; i++){
-            cin>>temp[i];
+    for (int i = 0; i < N; i++){
+        v.push_back({0, {0, 0, 0, 0}});
+        cin>>v[i].first;
+        for (int j = 0; j < 4; j++){
+            cin>>v[i].second[j];
         }
-        d.unite(temp[0], temp[1]);
-        d.unite(temp[2], temp[3]);
-        v.push_back({a, temp});
+        d.unite(v[i].second[0], v[i].second[1]);
+        d.unite(v[i].second[2], v[i].second[3]);
     }
 
     sort(v.begin(), v.end(), [](pair<int, vector<int>> a, pair<int, vector<int>> b){return a.first<b.first;});
 
     int ans = 0;
-    for (int i=0; i<v.size(); i++){
+    for (int i = 0; i < v.size(); i++){
         if (d.unite(v[i].second[0], v[i].second[2])) ans += v[i].first;
     }
-    
+
     cout<<ans<<endl;
     return 0;
 }
