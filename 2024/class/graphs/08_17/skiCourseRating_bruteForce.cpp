@@ -19,8 +19,9 @@ int rate(int x, int y){
     int c = 0, d = 0;
     //priority_queue<tuple<int, int, int>> pq; //difference, pre_value, x, y
     priority_queue<tuple<int, int, int>, vector<tuple<int, int, int>>, greater<tuple<int, int, int>>> pq;
-    bool vis[N][M];
-    memset(vis, false, N*M);
+    //bool vis[N][M];
+    vector<vector<bool>> vis(N, vector<bool>(M, false));
+    //memset(vis, false, N*M);
 
     pq.push({0, x, y});
 
