@@ -7,8 +7,7 @@ int main (){
 }
 
 vector<int> topsort(){
-    vector<int> states()
-
+    vector<int> states();
 }
 
 int Floyd(int x){

@@ -1,3 +1,5 @@
+//https://usaco.org/current/current/index.php?page=viewproblem2&cpid=384
+//doesn't work
 #include <bits/stdc++.h>
 #define ll long long
 #define f first

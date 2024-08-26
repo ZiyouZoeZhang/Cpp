@@ -1,4 +1,5 @@
-//this also doesn't!
+//https://usaco.org/index.php?page=viewproblem2&cpid=1259
+//this doens't work
 #include <bits/stdc++.h>
 using namespace std;
 
