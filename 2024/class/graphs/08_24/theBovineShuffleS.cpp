@@ -33,10 +33,7 @@ int main() {
 	while (!no_cows.empty()) {
 		ll curr = no_cows.front();
 		no_cows.pop();
-
-		// Position `curr` cannot contribute any cows.
 		if (--cows_after_shuffle[a[curr]] == 0) {
-			// If `a[curr]` has no cows, insert it into the queue.
 			no_cows.push(a[curr]);
 			ans--;
 		}

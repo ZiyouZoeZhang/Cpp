@@ -4,6 +4,7 @@ using namespace std;
 
 
 int main (){
+    
 }
 
 vector<int> topsort(){
@@ -13,7 +14,6 @@ vector<int> topsort(){
 int Floyd(int x){
 
     vector<int> succ;
-
 
     int a = succ[x];
     int b = succ[succ[x]];
