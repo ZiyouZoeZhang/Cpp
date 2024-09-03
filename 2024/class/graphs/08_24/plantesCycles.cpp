@@ -5,10 +5,7 @@ using namespace std;
 
 vector<int> v, ans;
 
-void Floyd(int x){
-
-    vector<bool> vis;
-
+void Floyd(int x){ //处理环的
     int a = v[x];
     int b = v[v[x]];
 
@@ -16,32 +13,33 @@ void Floyd(int x){
         a = v[a];
         b = v[v[b]];
     } 
-
-    //now where they meet
     a = x;
     while (a!=b){
         a = v[a];
         b = v[b];
     }
+
     int first = a; //where the cycle starts
+
+    stack<int> s;
 
     b = v[a]; 
     int length = 1; 
     while (a != b) { 
+        s.push(b);
         b = v[b]; 
         length++;
-    } //length = how long the cycle is
-    
-    a = first;
-    b = v[first]; 
-    while (a != b) { 
-        ans[b] = length;
-        b = v[b]; 
-    }
-    ans[b] = length;
+    } 
+    s.push(b);
+
+    while(!s.empty()){
+        ans[s.top()] = length;
+        s.pop();
+    } 
+    return;
 }
 
-void Check(int x){
+void Check(int x){ //处理不是环的
     stack<int> s;
     s.push(x);
 
@@ -57,10 +55,11 @@ void Check(int x){
 
 int main (){
     int n; cin>>n;
-    v.resize(n);
-    ans.resize(n, 0);
-    for (int i=0; i<n; i++) {cin>>v[i]; v[i]--;}
+    v.resize(n+5);
+    ans.resize(n+5, 0);
 
+    for (int i=0; i<n; i++) {cin>>v[i]; v[i]--;}
+    cout<<endl;
     for (int i=0; i<n; i++){
         if (ans[i] == 0) Floyd(i);
         if (ans[i] == 0) Check(i);
