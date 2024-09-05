@@ -48,7 +48,7 @@ void Floyd(int x){ //处理环的
 
     FOR(i, 0, cycle.size()) {
         for (auto v: adj[cycle[i]]){
-             dfs(v, length+1);
+            dfs(v, length+1);
         }
     }
 }

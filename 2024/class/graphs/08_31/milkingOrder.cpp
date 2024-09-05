@@ -4,33 +4,23 @@
 #define pb push_back
 using namespace std;
 
-int n, m;
-vector<int> input[50010];
-vector<int> topo;
-vector<int> adj[100010];
-bool vis[100010];
-int state[100010];
+int n, m, state[100010];
+vector<int> input[50010], adj[100010];
 
 bool toposort(int x){
-    if (vis[x] or state[x] == 2) return true;
-
-    vis[x] = true;
+    if (state[x]!= 0) return true;
     state[x] = 1;
+
     for (auto v: adj[x]) {
-        if (state[v]==1){
-            return false;
-        } 
+        if (state[v]==1) return false;
         if (!toposort(v)) return false;
     }
     state[x] = 2;
-    topo.pb(x);
     return true;
 }
 
-bool check(int x){
-    memset(vis, false, sizeof(vis));
+void setup(int x){
     memset(state, 0, sizeof(state));
-    topo.clear();
     FOR(i, 0, n) adj[i].clear();
     
     FOR(i, 0, x){
@@ -40,17 +30,40 @@ bool check(int x){
     }
 
     FOR (i, 0, x){
-        sort(adj[i].begin(), adj[i].end(), greater<int>());
-    }  
+        sort(adj[i].begin(), adj[i].end(), [](int a, int b){return b<a;});
+    }
+}
+
+bool check(int x){
+    setup(x);
 
     for(int i=n-1; i>=0; i--){
-        if (!vis[i]) {
+        if (state[i]==0) {
             if (!toposort(i)) return false;
         }
     }
 
-    reverse(topo.begin(), topo.end());
     return true;
+}
+
+void final (int x){
+    setup(x);
+    vector<int> in(n, 0);
+    priority_queue<int, vector<int>, greater<int>>q;
+    
+    FOR(i, 0, n) for (auto v: adj[i]) in[v]++;
+    FOR(i, 0, n) {
+        if(in[i] == 0) q.push(i);
+    }
+
+	while(!q.empty()) {
+		int u = q.top(); q.pop();
+		cout<<u+1<<" ";
+        for (auto v: adj[u]) {
+            in[v]--;
+            if (in[v]==0) q.push(v);
+        }
+	}
 }
 
 int main (){
@@ -65,37 +78,10 @@ int main (){
         }
     }
 
-    int x = n-1;
-    for (int b = n-2; b > 0; b /= 2) {
+    int x = n-1, b;
+    for (b = n-2; b > 0; b /= 2) {
         while (!check(x-b)){ x -= b;}
     }
-
-    FOR(i, 0, n){
-        cout<<topo[i]+1<<" ";
-    }
-
+    final(x-b-1);
     return 0;
 }
-
-/*
-5 5
-5 1 2 3 4 5
-6 1 3 2 5 4 3
-4 5 1 3 2
-8 5 2 3 1 4 2 3 5
-2 4 3
-
-5 5          
-5 3 2 4 1 5
-3 3 1 5
-2 4 5
-4 5 1 3 2
-8 5 2 3 1 4 2 3 5
-
-5 5 
-3 3 1 5
-2 4 5
-2 3 4
-5 1 2 3 4 5
-6 1 3 2 5 4 3
-*/
