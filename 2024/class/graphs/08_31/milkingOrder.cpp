@@ -25,12 +25,11 @@ void setup(int x){
     FOR(i, 0, x){
         FOR(j, 1, input[i].size()) adj[input[i][j-1]].pb(input[i][j]);
     }
-    FOR (i, 0, x) sort(adj[i].begin(), adj[i].end(), [](int a, int b){return b<a;});
 }
 
 bool check(int x){
     setup(x);
-    for(int i=n-1; i>=0; i--){
+    FOR(i, 0, n){
         if (state[i]==0) {
             if (!toposort(i)) return false;
         }
