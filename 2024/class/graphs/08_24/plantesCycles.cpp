@@ -1,5 +1,4 @@
 //https://cses.fi/problemset/task/1751
-
 #include <bits/stdc++.h>
 #define pb push_back
 #define FOR(i, a, b)  for(int i = (a); i < (b); i++)
@@ -7,8 +6,7 @@ using namespace std;
 
 vector<int> v, ans, adj[200010];
 
-void dfs(int u, int t)
-{
+void dfs(int u, int t) {
     if(ans[u] > 0) return;
 
     ans[u] = t;
@@ -18,19 +16,10 @@ void dfs(int u, int t)
 }
 
 void Floyd(int x){ //处理环的
-    int a = v[x];
-    int b = v[v[x]];
-
-    while (a!=b){
-        a = v[a];
-        b = v[v[b]];
-    } 
+    int a = v[x], b = v[v[x]];
+    while (a!=b){ a = v[a]; b = v[v[b]]; } 
     a = x;
-    while (a!=b){
-        a = v[a];
-        b = v[b];
-    }
-
+    while (a!=b) { a = v[a]; b = v[b]; }
     int first = a; //where the cycle starts
 
     vector<int> cycle;
