@@ -1,3 +1,18 @@
+/*
+
+Part1、「「最小生成树」之kruskal算法习题  Wormhole Sort /  Moocast方法讲解；
+Part2、「最小生成树」之prim算法，主要包括
+	(1）prim算法步骤、代码实现；
+	(2）prim算法与Dijkstra算法的异同点；
+Part3、「最小生成树」总结。
+	(1）kruskal算法与prim算法的异同点；
+	(2）生成树算法扩展应用以及标准步骤。
+		1）抽象出节点、边，形成图结构；
+		2） 抽象出联通块并形成树结构，进一步形成冗余边的剔除；
+		3） 难点1在构建图，一些竞赛题会基于条件构建有限图结构，形成时间复杂度的降低。
+
+ */
+
 //demonstratio of prim's algorithm
 #include <bits/stdc++.h>
 using namespace std;

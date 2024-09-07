@@ -5,6 +5,8 @@
 #define lowbit(x) ((x) & - (x))
 using namespace std;
 
+//BIT Binary Indexed tree
+
 int n, tree[100000];
 
 void add(int x, int d){
