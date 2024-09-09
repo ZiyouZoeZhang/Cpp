@@ -6,7 +6,7 @@
 #define lowbit(x) ((x) & - (x))
 using namespace std;
 
-int n, v[200010],tree[200010]; //is a second vector nessesary?
+int n, v[200010],tree[200010];
 
 void add(ll x, ll d){  //ax = ax + d
 	while(x <= n) {
@@ -43,12 +43,10 @@ int main (){
     }
     FOR (i, 1, n+1){
         int x;
-        cin>>x; // position to be removed
+        cin>>x;
         int a = bsearch_1(1, n+1, x);
         cout<<v[a]<<" ";
         add(a, -1);
-        //用二分找到需要移除的pos a, 用到了sum
-        //add(a, -1)
     }
     return 0;
 
