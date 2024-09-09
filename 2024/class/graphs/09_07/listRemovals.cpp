@@ -8,7 +8,7 @@ using namespace std;
 
 int n, v[200010],tree[200010];
 
-void add(ll x, ll d){  //ax = ax + d
+void add(ll x, ll d){
 	while(x <= n) {
 	   tree[x] += d;  
        x += lowbit(x); 
