@@ -27,7 +27,7 @@ ll sum(ll x){
 int bsearch_1(int l, int r, int pos) {
     while (l < r)
     {
-        int mid = l + r >> 1;
+        int mid = (l + r)>> 1;
         if (sum(mid)>=pos) r = mid;
         else l = mid + 1;
     }
