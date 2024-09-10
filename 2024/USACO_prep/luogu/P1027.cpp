@@ -1,3 +1,5 @@
+//https://www.luogu.com.cn/problem/P1027
+//first version, yoo it doesn't work, wait for my Dij next version
 #include <bits/stdc++.h>
 #define FOR(i, a, b)  for(int i = (a); i < (b); i++)
 #define pb push_back
