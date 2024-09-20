@@ -6,14 +6,7 @@
 #define lowbit(x) ((x) & - (x))
 using namespace std;
 
-//a data structure, set but easy to find
-
-//allocate a "new number" (index) to each number
-//before trying to find something, 
-//  find the correcsponding index number first, 
-//  then use that to find the sum
-
-int n, q, n1;
+int n, q;
 ll tree[200050];
 
 void add(ll x, ll d){  //ax = ax + d
@@ -32,24 +25,20 @@ ll sum(ll x){
     return sum;
 }
 
-//now upper bound & lower bound;
-
 
 
 int main(){
     memset(tree, 0, sizeof(tree));
     cin>>n>>q;
     set<int> s;
-    FOR(i, 0, n){
+    int size = 0;
+    FOR(i, 1, n+1){
         int a; cin>>a;
+        size = s.size();
         s.insert(a);
-    }
-    n1 = s.size();
-    vector<int> v;
-    int i=1;
-    for (auto itr: s){
-        add(i++, 1);
-        v.pb(itr);
+        if (s.size()!=size){
+            add(i, 1);
+        }
     }
 
     int a, b;
@@ -63,9 +52,7 @@ int main(){
         //cout<<*s.lower_bound(a)<<endl;
 
         //cout<<upper_bound(v.begin(), v.end(), b)-v.begin()<<" "<<lower_bound(v.begin(), v.end(), a)-v.begin()<<endl;
-        cout<<sum(upper_bound(v.begin(), v.end(), b)-v.begin()) - sum(lower_bound(v.begin(), v.end(), a)-v.begin())<<endl;
-
-        
+        cout<<sum(b)<<" "<<sum(a-1)<<endl;
         
     }
 
