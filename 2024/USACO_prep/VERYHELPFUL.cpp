@@ -31,7 +31,7 @@ const int dy[8] = {1, 0, -1, 0, 1, -1, -1, 1};
 
 void setIO(string name = "") {
     ios_base::sync_with_stdio(0); cin.tie(0);
-    if(sz(name)){
+    if((int)(name).size()){
         freopen((name+".in").c_str(), "r", stdin);
         freopen((name+".out").c_str(), "w", stdout);
     }
