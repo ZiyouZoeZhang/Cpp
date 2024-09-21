@@ -1,4 +1,6 @@
 //https://cses.fi/problemset/task/1144
+// little things to be edited
+
 #include <bits/stdc++.h>
 #define FOR(i, a, b)  for(ll i = (a); i < (b); i++)
 #define ll long long
@@ -46,3 +48,6 @@ int main (){
  
     }
 }
+
+
+//
