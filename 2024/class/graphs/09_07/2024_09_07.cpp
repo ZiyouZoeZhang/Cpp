@@ -6,6 +6,7 @@
 using namespace std;
 
 //BIT Binary Indexed tree
+//区间加单点值 和 区间加区间和
 
 int n, tree[100000];
 

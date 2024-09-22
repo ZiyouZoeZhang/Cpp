@@ -1,4 +1,8 @@
+//https://cses.fi/problemset/task/1648
+//written 09_07 once using BIT, now its the Segment tree version
 //study this code
+
+
 #include <iostream>
 #include <vector>
 using namespace std;

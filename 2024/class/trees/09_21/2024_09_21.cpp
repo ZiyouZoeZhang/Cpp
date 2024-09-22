@@ -1,4 +1,11 @@
 //segment tree
+/** quick wise words about segment trees and 树状数组
+ * 
+ * Coordinate Compression
+ * If the coordinates are large (say, up to $10^9$), then you should apply coordinate compression 
+ * before using a BIT or segment tree (though sparse segment trees do exist). 
+ * 
+ *  */
 
 #include <bits/stdc++.h>
 using namespace std;

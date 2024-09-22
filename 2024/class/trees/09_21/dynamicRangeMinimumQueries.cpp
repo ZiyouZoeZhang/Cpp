@@ -1,4 +1,8 @@
 //https://cses.fi/problemset/task/1649
+/**
+ * example of how the template for segement tree (and the sum) 
+ * and be easily modified to know the minimum value in a given subsequence
+ */
 
 #include <bits/stdc++.h>
 using namespace std;

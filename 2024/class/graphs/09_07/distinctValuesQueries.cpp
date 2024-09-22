@@ -1,4 +1,5 @@
 //https://cses.fi/problemset/task/1734
+//the code that is supposed to work but actually doesn't, check where I did things wrong
 
 int n, q;
 int d[200010];
