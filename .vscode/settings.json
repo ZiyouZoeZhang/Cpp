@@ -117,7 +117,8 @@
         "git.enabled": "false",
         "__verbose_abort": "cpp",
         "execution": "cpp",
-        "print": "cpp"
+        "print": "cpp",
+        "climits": "cpp"
     },
     "C_Cpp.errorSquiggles": "enabled",
     "files.exclude": {
