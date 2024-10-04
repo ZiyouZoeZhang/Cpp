@@ -4,17 +4,19 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include <ext/pb_ds/assoc_container.hpp>
+/*
+#include <ext/pb_ds/assoc_container.hpp> //I need to import this header, which allows 
 using namespace __gnu_pbds;
 template <class T>
 using Tree =
     tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
 
+*/
 int main() {
 	int test_num;
 	cin >> test_num;
 	for (int t = 0; t < test_num; t++) {
-		Tree<int> tree;
+		//Tree<int> tree;
 
 		int arr_len;
 		cin >> arr_len;
@@ -27,8 +29,8 @@ int main() {
 			 * that are greater than x.
 			 * (.order_of_key(x) gives the # of elements less than x)
 			 */
-			inv_num += i - tree.order_of_key(x);
-			tree.insert(x);
+			//inv_num += i - tree.order_of_key(x);
+			//tree.insert(x);
 		}
 
 		cout << inv_num << '\n';

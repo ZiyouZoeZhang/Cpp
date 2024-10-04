@@ -13,7 +13,7 @@ int tree[200010];
 using namespace std;
 
 void add(ll x, ll d){  //ax = ax + d
-	while(x <= 200050) {
+	while(x <= n) {
 	   tree[x] += d;  
        x += lowbit(x); 
 	}
@@ -42,11 +42,14 @@ int main (){
     }
 
     map<int, int>last; //每一个元素最后一次出现的位置在哪里？
-    for (int i = n-1; i>=0; i--){
+    for (int i = n; i>0; i--){
         int val = d[i]; //current wal
         if (last.count(val) > 0){ //出现过
             add(last[val], -1); //之前的位置
         } 
+        if (i==0){
+            cout<<"WARNING"<<endl;
+        }
         add(i, 1); //当前的位置
         last[val] = i;
 
@@ -62,7 +65,7 @@ int main (){
     }
     
     FOR(i, 1, q+1) {
-        cout<<ans[i]<<endl;
+        cout<<ans[i]-1<<endl;
     }
 
     return 0;
