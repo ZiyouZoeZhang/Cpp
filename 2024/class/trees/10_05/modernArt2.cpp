@@ -31,6 +31,7 @@ int main (void){
         cin>>v[i];
         if (!vis[v[i]]){ ss[i] = true; vis[v[i]] = true;}
     }
+    
     for (int i=n+1; i>=0; i--){
         if (vis[v[i]]) {ee[i] = true; vis[v[i]] = false;}
     }

@@ -18,3 +18,4 @@ int main() {
     cout<<ans<<endl;
     return 0;
 }
+//use nearest smallest values
