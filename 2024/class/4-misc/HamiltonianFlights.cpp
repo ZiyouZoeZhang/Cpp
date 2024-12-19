@@ -1,8 +1,11 @@
-//bitmasks dp
-
+//https://cses.fi/problemset/task/1690
 #include <bits/stdc++.h>
+#define FOR(i, a, b)  for(int i = (a); i < (b); i++)
+#define ll long long
+//#define f first
+//#define s second
+#define pb push_back
 using namespace std;
-using ll = long long;
 const int MAX_N = 20;
 const ll MOD = (ll)1e9 + 7;
 
