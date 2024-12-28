@@ -20,14 +20,14 @@ int main() {
     for (int f = 0; f < flight_num; f++) {
         int start, end;
         cin >> start >> end;
-        come_from[--end].push_back(--start);
+        come_from[--end].push_back(--start); //reversed adjecency list
     }
-    dp[1][0] = 1;
+
+    dp[1][0] = 1; //start from 1, go to 0, there is 1 route?
     for (int s = 2; s < 1 << city_num; s++) {
-        // only consider subsets that have the first city
-        if ((s & (1 << 0)) == 0) continue;
-        // also only consider subsets with the last city if it's the full subset
-        if ((s & (1 << (city_num - 1))) && s != ((1 << city_num) - 1)) continue;
+        if ((s & (1 << 0)) == 0) continue; // remove susets that don't contain the first city
+        if ((s & (1 << (city_num - 1))) && s != ((1 << city_num) - 1)) continue; //remove substest that contain the last city but is not the full set
+        // if city_num - 1 th bit is 1 and the current set is not the full set
         for (int end = 0; end < city_num; end++) {
             if ((s & (1 << end)) == 0) continue;
         // the subset that doesn't include the current end

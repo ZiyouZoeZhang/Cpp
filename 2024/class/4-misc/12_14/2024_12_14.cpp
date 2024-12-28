@@ -6,6 +6,17 @@ using ll = long long;
 const int MAX_N = 20;
 const ll MOD = (ll)1e9 + 7;
 
+
+
+
+
+/**
+ * 
+ * IMP!!
+ * 2 ^ 20 < 10 ^ 9
+ * therefore any N smaller than 20 fullfills.
+ */
+
 ll dp[1 << MAX_N][MAX_N];
 // come_from[i] contains the cities that can fly to i
 vector<int> come_from[MAX_N];
