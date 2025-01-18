@@ -1,5 +1,11 @@
 //https://cses.fi/problemset/task/2185
 //容斥原理
+/**
+ * 当有重复的集合在一块儿，我们需要把重复的元素移除出去
+ * 两个元素的重叠 -》 需要少算一次
+ * 三个元素重叠/奇数 -》需要多算一次（额外的+1次）
+ * 
+ */
 
 #include <bits/stdc++.h>
 #define FOR(i, a, b)  for(ll i = (a); i < (b); i++)

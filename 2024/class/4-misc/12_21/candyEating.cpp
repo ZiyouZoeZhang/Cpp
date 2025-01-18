@@ -1,5 +1,10 @@
 //https://acm.hdu.edu.cn/showproblem.php?pid=1205
 //鸽巢原理
+/**
+ * 比如假设有三个苹果，然后有两个抽屉， 那么放苹果最多的抽屉最少会放2个苹果
+ * 可以用反证法 
+ * 识别出谁是糖果，谁是抽屉
+ */
 
 #include <bits/stdc++.h>
 #define FOR(i, a, b)  for(int i = (a); i < (b); i++)
